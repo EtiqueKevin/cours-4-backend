@@ -1,6 +1,8 @@
 <div{{ attributes }}>
     <h2>{{ batiment.nom }}</h2>
+    <ul>
     {% for personne in batiment.personnes %}
-        <p>{{ personne.nom }}</p>
+        <p>{{ personne.nom }} {{ personne.prenom }} ; {{ personne.age }} ans</p>
     {% endfor %}
+    
 </div>

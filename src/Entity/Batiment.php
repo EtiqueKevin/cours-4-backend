@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\BatimentRepository;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -20,8 +21,8 @@ class Batiment
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
-    #[ORM\Column(type: Types::ARRAY)]
-    private array $personnes = [];
+    #[ORM\OneToMany(mappedBy:'batiment' ,targetEntity: Personne::class)]
+    private Collection $personnes;
 
     public function getId(): ?int
     {
@@ -52,12 +53,12 @@ class Batiment
         return $this;
     }
 
-    public function getPersonnes(): array
+    public function getPersonnes(): Collection
     {
         return $this->personnes;
     }
 
-    public function setPersonnes(array $personnes): static
+    public function setPersonnes(Collection $personnes): static
     {
         $this->personnes = $personnes;
 

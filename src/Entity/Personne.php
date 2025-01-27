@@ -25,6 +25,9 @@ class Personne
     #[ORM\Column]
     private ?int $age = null;
 
+    #[ORM\ManyToOne(targetEntity: Batiment::class, inversedBy: 'personnes')]
+    private Batiment $batiment;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +77,18 @@ class Personne
     public function setAge(int $age): static
     {
         $this->age = $age;
+
+        return $this;
+    }
+
+    public function getBatiment(): Batiment
+    {
+        return $this->batiment;
+    }
+
+    public function setBatiment(Batiment $batiment): static
+    {
+        $this->batiment = $batiment;
 
         return $this;
     }
