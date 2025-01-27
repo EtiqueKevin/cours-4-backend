@@ -1,20 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BatimentController!{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/var/www/html/src/Controller/BatimentController.php</code></li>
-        <li>Your template at <code>/var/www/html/templates/batiment/index.html.twig</code></li>
-    </ul>
-</div>
+    <h1>Liste des batiments</h1>
+    {% for batiment in batiments %}
+        {{ component('batiment', { batiment: batiment }) }}
+    {% endfor %}
 {% endblock %}
