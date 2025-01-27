@@ -43,6 +43,21 @@ Sans docker:
 php -S 0.0.0.0:8080 -t public
 ```
 
+Pour lancer: 
+```bash
+docker compose exec php bin/console doctrine:migrations:migrate
+```
+
+puis:
+```bash
+docker compose exec php bin/console app:add-data
+```
+
+pour accéder au projet: 
+```
+localhost:8080/batiment/
+```
+
 
 
 
